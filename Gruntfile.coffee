@@ -35,6 +35,14 @@ module.exports = (grunt)->
         separator: ';'
 
     copy:
+      assets:
+        files: [{
+          expand: true
+          cwd: 'assets/'
+          src: ['**/*.*']
+          dest: 'build/imgs/'
+        }]
+
       hbs:
         files: [{
           expand: true
