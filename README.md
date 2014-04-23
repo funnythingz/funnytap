@@ -1,5 +1,3 @@
-funnytap!!
-
-<hr>
+# funnytap!!
 
 &copy; funnythingz
