@@ -1,9 +1,0 @@
-{
-  "framework" : "mocha+chai",
-  "src_files" : [
-    "build/js/jquery.min.js",
-    "build/js/handlebars.min.js",
-    "build/js/funnytap.js",
-    "tests/**/*.js"
-  ]
-}

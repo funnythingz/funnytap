@@ -1,3 +1,0 @@
-# funnytap!!
-
-&copy; funnythingz
