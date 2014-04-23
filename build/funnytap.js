@@ -195,23 +195,81 @@ var FunnyTap;
             _super.call(this);
             this.tagName = 'div';
             this.className = 'funnytap';
-            this.events = {};
+            this.startFlag = false;
+            this.events = {
+                'click .stage': [this.stop, this]
+            };
 
             this.reflectTagName();
             this.reflectAttribute();
             this.render();
             this.delegateEvents(this.events);
         }
+        FunnytapView.prototype.stop = function (event, data) {
+            var funnytap = event.data;
+
+            if (funnytap.isStart()) {
+                console.log('stop');
+                funnytap.startFlag = false;
+                funnytap.stopDate = new Date();
+                var score = (funnytap.startDate.getTime() - funnytap.stopDate.getTime());
+                $('#message').text('Score: ' + score.toString());
+                $('#retry').removeClass('hide');
+            }
+        };
+
         FunnytapView.prototype.render = function () {
+            this.screenFit();
+            this.resizeToWindow();
+
+            this.start();
+
             this.$el.append(this.renderTemplate());
 
             return this;
         };
 
+        FunnytapView.prototype.start = function () {
+            var funnytap = this;
+
+            setTimeout(function () {
+                console.log('start');
+                funnytap.startFlag = true;
+
+                $('#image').addClass('tap');
+                $('#message').text('just tap!!');
+
+                funnytap.startDate = new Date();
+            }, 4000);
+        };
+
         FunnytapView.prototype.renderTemplate = function () {
-            var template = new HACKLE.HBSTemplate('hbs/funnytap.hbs');
+            var template = new HACKLE.HBSTemplate('hbs/stage.hbs');
 
             return template.render({});
+        };
+
+        FunnytapView.prototype.screenFit = function () {
+            this.$el.css('height', $(window).height() + 'px');
+        };
+
+        FunnytapView.prototype.resizeToWindow = function () {
+            var timer;
+            var funnytap = this;
+
+            $(window).on('resize', function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                timer = setTimeout(function () {
+                    funnytap.$el.css('height', $(window).height() + 'px');
+                }, 100);
+            });
+        };
+
+        FunnytapView.prototype.isStart = function () {
+            return this.startFlag;
         };
         return FunnytapView;
     })(HACKLE.View);
