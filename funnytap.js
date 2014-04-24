@@ -134,6 +134,8 @@ var HACKLE;
         function Application() {
         }
         Application.prototype.ready = function () {
+            FastClick.attach(document.body);
+
             var controller = new FunnyTap.Controller();
             controller.index();
         };
