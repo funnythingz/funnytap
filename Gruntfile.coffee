@@ -111,7 +111,7 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-    clean: ['src/**/*.js', 'build/hbs/**/*.hbs', 'build/funnytap.js']
+    clean: ['src/**/*.js', 'build/hbs/**/*.hbs']
 
     connect:
       server:
