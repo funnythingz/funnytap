@@ -6,6 +6,7 @@
 %_image {
     width: 320px;
     height: 320px;
+    background-image: url(../imgs/toda.png);
     background-repeat: no-repeat;
     background-position: 0 0;
     display: inline-block;
@@ -28,10 +29,9 @@
 
     .image {
         @extend %_image;
-        background-image: url(../imgs/toda-a.jpg);
 
         &.tap {
-            background-image: url(../imgs/toda-b.jpg);
+            background-position: 0 -320px;
         }
     }
 
