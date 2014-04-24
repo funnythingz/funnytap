@@ -75,6 +75,14 @@ module.exports = (grunt)->
           dest: 'build/js/'
         }]
 
+      fastclick:
+        files: [{
+          expand: true
+          cwd: 'bower_components/fastclick/lib/'
+          src: ['fastclick.js']
+          dest: 'build/js/'
+        }]
+
     typescript:
       base:
         src: ['src/ts/**/*.ts', 'tests/**/*.ts']

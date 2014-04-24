@@ -2,6 +2,7 @@
   "name": "funnytap!!",
   "dependencies": {
     "handlebars": "https://github.com/components/handlebars.js.git#~v1.3.0",
-    "jquery": "https://github.com/jquery/jquery.git#~v2.1.0"
+    "jquery": "https://github.com/jquery/jquery.git#~v2.1.0",
+    "fastclick": "https://github.com/ftlabs/fastclick.git#~v1.0.1"
   }
 }
