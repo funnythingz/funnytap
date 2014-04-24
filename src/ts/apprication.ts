@@ -1,3 +1,4 @@
+/// <reference path="../../definitions/fastclick.d.ts" />
 /// <reference path="controller.ts" />
 
 module FunnyTap {
@@ -5,6 +6,8 @@ module FunnyTap {
     export class Application {
 
         ready() {
+            FastClick.attach(document.body);
+
             var controller: Controller = new Controller();
             controller.index();
         }
